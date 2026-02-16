@@ -1,4 +1,4 @@
-/* Styles for the resume page */
+/* Styles for the Personal Portfolio Website */
 
 body {
   margin: 0;
@@ -6,20 +6,26 @@ body {
   background-color: white;
   color: #313131;
   line-height: 1.6;
+  max-width: 100%;
 }
 
-header, section {
+header, section, main, nav {
   padding: 20px;
 }
 
 h1 {
   margin-bottom: 5px;
+  font-size: 2em;
 }
 
 h2 {
   border-bottom: 2px solid blue;
   padding-bottom: 5px;
   margin-top: 30px;
+}
+
+h3 {
+  margin-top: 15px;
 }
 
 a {
@@ -35,23 +41,63 @@ ul {
   padding-left: 20px;
 }
 
-/* Mobile layout in a single column */
-
-body {
-  max-width: 100%;
-}
+/* Header Styling */
 
 header {
   text-align: center;
   background: white;
+  margin-bottom: 15px;
 }
+
+/*section styling for all sections except header */
 
 section {
   background: white;
   margin-bottom: 15px;
+  padding: 20px;
 }
 
-/* Desktop layout with two columns and a centered container */
+section div img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Navigation Links Styling */
+
+nav a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 12px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  background-color: white;
+  color: blue;
+}
+
+nav a:hover {
+  background-color: blue;
+  color: white;
+}
+
+/* mobile layout (single column) */
+
+@media (max-width: 899px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  section div {
+    display: block;
+  }
+
+  section div img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* desktop layout (two columns for Education & Skills, full width for Work, Volunteer, Projects) */
 
 @media (min-width: 900px) {
 
@@ -64,14 +110,10 @@ section {
   header {
     text-align: left;
     border-bottom: 3px solid blue;
+    padding-bottom: 10px;
   }
 
-  /* Two-column layout for sections */
-  section {
-    padding: 30px;
-  }
-
-  /* Put Education & Skills side-by-side */
+  /* Two-column layout for Education & Skills on Resume */
   section:nth-of-type(2),
   section:nth-of-type(6) {
     width: 48%;
@@ -79,11 +121,22 @@ section {
     vertical-align: top;
   }
 
-  /* Make Work & Volunteer full width */
+  /* Full width for Work, Volunteer, Projects sections */
   section:nth-of-type(3),
   section:nth-of-type(4),
   section:nth-of-type(5) {
     width: 100%;
   }
 
+  /* Project screenshots row */
+  section div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  section div img {
+    max-width: 32%;
+    height: auto;
+  }
 }
